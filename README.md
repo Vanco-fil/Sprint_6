@@ -1,4 +1,4 @@
-# # Sprint_5. UI-тестированию с помощью Page Object Model сервиса [Яндекс.Самокат](https://qa-scooter.praktikum-services.ru)
+# # Sprint_6. UI-тестированию с помощью Page Object Model сервиса [Яндекс.Самокат](https://qa-scooter.praktikum-services.ru)
 
 ## Структура проекта:
 
