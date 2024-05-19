@@ -1,7 +1,5 @@
 import allure
 from data import URL_DZEN
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 from pages.header_page import HeaderPage
 from pages.order_page import OrderPage
 
@@ -14,8 +12,7 @@ class TestHeaderPage:
     def test_check_yandex_logo_click(self, driver):
         header_page = HeaderPage(driver)
         header_page.click_yandex_logo()
-        driver.switch_to.window(driver.window_handles[-1])
-        WebDriverWait(driver, 6).until(expected_conditions.url_contains(URL_DZEN))
+        header_page.wait_for_url(URL_DZEN)
         assert URL_DZEN in driver.current_url
 
     @allure.title('Проверка кликабельности и перехода на главную по логотипу "Самокат"')

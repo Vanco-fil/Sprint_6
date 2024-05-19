@@ -1,21 +1,10 @@
 import allure
 from helpers import create_random_data
-from locators.base_page_locators import BasePageLocators
-from locators.home_page_locators import HomePageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 
 
 class OrderPage(BasePage):
-
-    @allure.step('Кликаем на кнопку "Заказать" в хедере страницы')
-    def click_header_button_order(self):
-        self.click_element(BasePageLocators.BUTTON_ORDER_HEADER)
-
-    @allure.step('Кликаем на кнопку "Заказать" в середине страницы')
-    def click_bottom_button_order(self):
-        self.scroll_to_element(HomePageLocators.BUTTON_ORDER_BOTTOM)
-        self.click_element(HomePageLocators.BUTTON_ORDER_BOTTOM)
 
     @allure.step('Вводим имя')
     def input_name(self, name):

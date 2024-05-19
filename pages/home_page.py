@@ -1,8 +1,14 @@
 import allure
+from locators.home_page_locators import HomePageLocators
 from pages.base_page import BasePage
 
 
 class HomePage(BasePage):
+
+    @allure.step('Кликаем на кнопку "Заказать" в середине страницы')
+    def click_bottom_button_order(self):
+        self.scroll_to_element(HomePageLocators.BUTTON_ORDER_BOTTOM)
+        self.click_element(HomePageLocators.BUTTON_ORDER_BOTTOM)
 
     @allure.step('Тапаем на вопрос в аккордеоне')
     def tap_question(self, locator, index):

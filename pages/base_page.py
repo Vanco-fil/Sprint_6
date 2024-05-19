@@ -13,9 +13,13 @@ class BasePage:
         WebDriverWait(self.driver, 3).until(expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
+    @allure.step('Ожидаем что {locator} станет кликабельным')
+    def wait_element_clickable(self, locator):
+        element = WebDriverWait(self.driver, 3).until(expected_conditions.element_to_be_clickable(locator))
+        return element
+
     @allure.step('Кликаем на {locator}')
     def click_element(self, locator):
-        WebDriverWait(self.driver, 3).until(expected_conditions.element_to_be_clickable(locator))
         self.driver.find_element(*locator).click()
 
     @allure.step('Скроллим к {locator}')
@@ -25,8 +29,12 @@ class BasePage:
 
     @allure.step('Печатаем {text} в {locator}')
     def enter_text(self, locator, text):
-        WebDriverWait(self.driver, 3).until(expected_conditions.element_to_be_clickable(locator))
+        self.wait_element_clickable(locator)
         self.driver.find_element(*locator).send_keys(text)
+
+    @allure.step('Кликаем на кнопку "Заказать" в хедере страницы')
+    def click_header_button_order(self):
+        self.click_element(BasePageLocators.BUTTON_ORDER_HEADER)
 
     @allure.step('Ждем окно о куках и закрываем его')
     def click_cookie_button(self):
