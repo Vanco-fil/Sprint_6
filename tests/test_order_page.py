@@ -22,7 +22,7 @@ class TestOrderPage:
     @allure.title('Проверка оформления аренды самоката через кнопку "Заказать" внизу страницы')
     @allure.description('Проверяем возможность успешного оформления аренды с 2 наборами данных через кнопку внизу страницы')
     @pytest.mark.parametrize('name, surname, address, metro, number', [*personal_date])
-    def test_successful_order_header_button(self, driver, name, surname, address, metro, number):
+    def test_successful_order_bottom_button(self, driver, name, surname, address, metro, number):
         order_page = OrderPage(driver)
         home_page = HomePage(driver)
         home_page.click_bottom_button_order()

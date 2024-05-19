@@ -21,9 +21,8 @@ class TestHomePage:
                               (7, data.text[7])])
     def test_check_answers(self, driver, index, text_of_answer):
         home_page = HomePage(driver)
-        base_page = BasePage(driver)
         home_page.click_cookie_button()
-        base_page.scroll_to_element(HomePageLocators.TITLE_IMPORT_QUEST)
+        home_page.scroll_to_questions()
         question = home_page.tap_question(HomePageLocators.QUESTION_ACCORDION, index)
         result = home_page.find_answer(HomePageLocators.ANSWER_ACCORDION, index)
         assert text_of_answer[question] == result

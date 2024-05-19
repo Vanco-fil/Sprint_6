@@ -10,6 +10,10 @@ class HomePage(BasePage):
         self.scroll_to_element(HomePageLocators.BUTTON_ORDER_BOTTOM)
         self.click_element(HomePageLocators.BUTTON_ORDER_BOTTOM)
 
+    @allure.step('Скроллим до раздела "Вопросы о важном" с аккардеоном внизу страницу')
+    def scroll_to_questions(self):
+        self.scroll_to_element(HomePageLocators.TITLE_IMPORT_QUEST)
+
     @allure.step('Тапаем на вопрос в аккордеоне')
     def tap_question(self, locator, index):
         selector, locator = locator
