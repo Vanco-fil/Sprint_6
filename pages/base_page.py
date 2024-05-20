@@ -36,6 +36,15 @@ class BasePage:
     def click_header_button_order(self):
         self.click_element(BasePageLocators.BUTTON_ORDER_HEADER)
 
+    @allure.step('Переключаем активное окно браузера на последнее открытое окно')
+    def switch_to_last_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+
+    @allure.step('Ожидаем URL текущей страницы')
+    def wait_url_contains(self, url):
+        WebDriverWait(self.driver, 6).until(expected_conditions.url_contains(url))
+        return self.driver.current_url
+
     @allure.step('Ждем окно о куках и закрываем его')
     def click_cookie_button(self):
         self.wait_element(BasePageLocators.BUTTON_COOKIE)

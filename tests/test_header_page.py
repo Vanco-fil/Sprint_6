@@ -12,8 +12,8 @@ class TestHeaderPage:
     def test_check_yandex_logo_click(self, driver):
         header_page = HeaderPage(driver)
         header_page.click_yandex_logo()
-        header_page.wait_for_url(URL_DZEN)
-        assert URL_DZEN in driver.current_url
+        url = header_page.wait_for_url(URL_DZEN)
+        assert URL_DZEN in url
 
     @allure.title('Проверка кликабельности и перехода на главную по логотипу "Самокат"')
     @allure.description('Проверяем кликабельность логотипа «Самокат», что после тапа не него '
